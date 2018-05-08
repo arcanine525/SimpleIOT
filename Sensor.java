@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 public class Sensor {
 	public static void main(String[] args) throws Exception {
 		int _ID = Integer.parseInt(args[0]);
-		int GATEWAY_PORT = 9876;
+		int GATEWAY_PORT = Integer.parseInt(args[1]);
 
 		while (true) {
 			Random rand = new Random();
