@@ -18,7 +18,7 @@ public class Sensor {
 			DatagramSocket clientSocket = new DatagramSocket();
 			InetAddress IPAddress = InetAddress.getByName("localhost");
 
-			String data = String.valueOf(sensorData + "*C at Sensor_ID: " + _ID);
+			String data = String.valueOf(_ID + "#" + sensorData);
 			byte[] sendData = data.getBytes();
 
 			DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, IPAddress, GATEWAY_PORT);
