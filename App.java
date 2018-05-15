@@ -10,7 +10,7 @@ import java.net.*;
 
 public class App extends JFrame {
 
-    public static void main(String[] argv) throws Exception {
+    public static void main(String[] args) throws Exception {
         int SERVER_PORT = Integer.parseInt(args[0]);
         DefaultTableModel model = new DefaultTableModel();
         JTable table = new JTable(model);

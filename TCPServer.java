@@ -6,7 +6,7 @@ import java.util.Vector;
 public class TCPServer {
 	static Vector<ClientHandler> ar = new Vector<>();
 
-	public static void main(String argv[]) throws Exception {
+	public static void main(String args[]) throws Exception {
 		int SERVER_PORT = Integer.parseInt(args[0]);
 		// String sensorData;
 		// String message = "Ok";
