@@ -5,7 +5,7 @@ import java.util.StringTokenizer;
 public class Gateway {
 	public static void main(String args[]) throws Exception {
 		int GATEWAY_ID = Integer.parseInt(args[0]);
-		int SERVER_PORT = 6789;
+		int SERVER_PORT = Integer.parseInt(args[1]);
 		DatagramSocket gateWay = new DatagramSocket(GATEWAY_ID);
 		byte[] receiveData = new byte[1024];
 

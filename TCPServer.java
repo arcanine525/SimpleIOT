@@ -7,7 +7,7 @@ public class TCPServer {
 	static Vector<ClientHandler> ar = new Vector<>();
 
 	public static void main(String argv[]) throws Exception {
-		int SERVER_PORT = 6789;
+		int SERVER_PORT = Integer.parseInt(args[0]);
 		// String sensorData;
 		// String message = "Ok";
 
@@ -28,7 +28,7 @@ public class TCPServer {
 				BufferedReader inFromClient = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 				DataOutputStream outToClient = new DataOutputStream(socket.getOutputStream());
 
-				System.out.println("Assigning new thread for this client");
+				//System.out.println("Assigning new thread for this client");
 
 				ClientHandler myClientHandler = new ClientHandler(socket, inFromClient, outToClient);
 

@@ -9,8 +9,9 @@ import java.io.*;
 import java.net.*;
 
 public class App extends JFrame {
+
     public static void main(String[] argv) throws Exception {
-        int SERVER_PORT = 6789;
+        int SERVER_PORT = Integer.parseInt(args[0]);
         DefaultTableModel model = new DefaultTableModel();
         JTable table = new JTable(model);
 
@@ -18,7 +19,7 @@ public class App extends JFrame {
         model.addColumn("Gatway_ID");
         model.addColumn("Sensor_ID");
         model.addColumn("Temperature");
-    
+
         JFrame f = new JFrame();
         f.setSize(450, 450);
         f.add(new JScrollPane(table));
@@ -47,7 +48,7 @@ public class App extends JFrame {
             }
             id++;
             System.out.println("REQ: " + id);
-            //TimeUnit.SECONDS.sleep(5);
+            // TimeUnit.SECONDS.sleep(5);
 
         }
     }
