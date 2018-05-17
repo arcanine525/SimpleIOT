@@ -8,12 +8,9 @@ public class Gateway {
 		int SERVER_PORT = Integer.parseInt(args[1]);
 		DatagramSocket gateWay = new DatagramSocket(GATEWAY_ID);
 		byte[] receiveData = new byte[1024];
-
 		System.out.println("GATEWAY IS RUNNING AT PORT " + GATEWAY_ID);
-
 		while (true) {
 			try {
-
 				DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
 				gateWay.receive(receivePacket);
 				String sensorData = (new String(receivePacket.getData())).trim();
@@ -30,15 +27,12 @@ public class Gateway {
 
 				try {
 					String mess = new String(sensorData);
-
 					outToServer.writeBytes(GATEWAY_ID + "#" + sensorData + '\n');
 					mess = inFromServer.readLine();
 					System.out.println("SERVER SAID: " + mess);
-
 				} catch (Exception e) {
 					clientSocket.close();
 				}
-
 			} catch (Exception e) {
 				gateWay.close();
 			}

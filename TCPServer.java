@@ -8,9 +8,6 @@ public class TCPServer {
 
 	public static void main(String args[]) throws Exception {
 		int SERVER_PORT = Integer.parseInt(args[0]);
-		// String sensorData;
-		// String message = "Ok";
-
 		ServerSocket welcomeSocket = new ServerSocket(SERVER_PORT);
 		System.out.println("SERVER IS RUNNING AT PORT " + SERVER_PORT + "...");
 
@@ -21,14 +18,8 @@ public class TCPServer {
 				socket = welcomeSocket.accept();
 				System.out.println("A new client is connected : " + socket);
 
-				// Create input and out streams
-				// DataInputStream dis = new DataInputStream(socket.getInputStream());
-				// DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
-
 				BufferedReader inFromClient = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 				DataOutputStream outToClient = new DataOutputStream(socket.getOutputStream());
-
-				//System.out.println("Assigning new thread for this client");
 
 				ClientHandler myClientHandler = new ClientHandler(socket, inFromClient, outToClient);
 
@@ -49,7 +40,6 @@ public class TCPServer {
 
 // ClientHandler class
 class ClientHandler extends Thread {
-
 	final BufferedReader bufferedReader;
 	final DataOutputStream outputStream;
 	final Socket s;
@@ -68,18 +58,12 @@ class ClientHandler extends Thread {
 
 		while (true) {
 			try {
-				
 				received = bufferedReader.readLine();
-
 				System.out.println(received);
 
 				if (received.equals("GET_TEMP")) {
 					this.isApp = true;
-					// outputStream.writeBytes("Hello App" + '\n');
-					// s.close();
-					// break;
 				} else {
-
 					StringTokenizer tokenizer = new StringTokenizer(received, "#");
 					String Gateway_ID = tokenizer.nextToken();
 					String Sensor_ID = tokenizer.nextToken();
@@ -98,14 +82,11 @@ class ClientHandler extends Thread {
 							}
 
 							client.isApp = false;
-
-							// break;
 						}
 
 					}
 					outputStream.writeBytes(toGateway + '\n');
 				}
-
 			} catch (Exception e) {
 				e.printStackTrace();
 				break;

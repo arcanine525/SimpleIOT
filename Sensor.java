@@ -1,4 +1,3 @@
-
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
@@ -23,15 +22,7 @@ public class Sensor {
 
 			DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, IPAddress, GATEWAY_PORT);
 			clientSocket.send(sendPacket);
-
-			// DatagramPacket receivePacket = new DatagramPacket(receiveData,
-			// receiveData.length);
-			// clientSocket.receive(receivePacket);
-			// String mess = new String(receivePacket.getData());
-			// System.out.println("Gateway SAID: " + mess);
-
 			clientSocket.close();
-
 			TimeUnit.SECONDS.sleep(5);
 		}
 	}
